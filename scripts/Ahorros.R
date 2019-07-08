@@ -9,7 +9,7 @@ rm(list = ls()) #Borrar ambiente
 options(scipen=999) #Quitar notacion cientifica
 gc() #Limpieza de RAM
 cat("\014") #Limpieza de consola
-#.rs.restartR()
+#.rs.restartR() 
 
 ###########################################################################################################
 #                                          PARAMETROS                                                     #
@@ -26,15 +26,15 @@ Tipo_corrida <- "scorear"
 #Meses considerados: asi sea solo un mes, ponerlo en un vector. Ejemplo: Meses <- c("2018_12")
 #Si es "entrenar_scorear_mismoperiodo", sirve de training y test. Si es "entrenar_scorear_diferentes periodos", de training.
 #No sirve para "scorear"
-Meses <- c("2019_05")
+Meses <- c("2019_06")
 
 #Corresponde a el mes al que se le van a generar los scores.
 #Solo aplica si el Tipo de corrida es "entrenar_scorear_diferentesperiodos" o "scorear". Si no, no se va a usar.
-Mes_score <- "2019_05"
+Mes_score <- "2019_06"
 
 #Seleccion del modelo. Debe ser modelo_1, modelo_2, modelo_3 o modelo_4. 
 #El Script Seleccion_modelo tiene la parametrizacion de cada uno.
-modelo <- "modelo_4"
+modelo <- "modelo_1"
 
 ##########################################################################################################
 

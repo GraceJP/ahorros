@@ -35,7 +35,7 @@ crear_tabla_principal <- function(Meses, filtro_oficinas, filtro_cafeteras, filt
     source(paste0(getwd(),"/Scripts/Parametros_dependientes.R"))
     
     #Cargue y limpieza de tabla principal
-    suppressWarnings(Ahorros <- fread(file = paste0(getwd(), "/aho_fin_mes_", Mes,".csv"), integer64 = "character"))
+    suppressWarnings(Ahorros <- fread(file = paste0(getwd(), "Data/Original/Fin_mes/aho_fin_mes_", Mes,".csv"), integer64 = "character"))
     
     #Validacion: que no haya registros duplicados
     if(length(unique(Ahorros$AAHO_NUM_CUENTA)) < nrow(Ahorros)) {stop(paste0("Hay cuentas de ahorros duplicadas en la data del mes ", Mes))}
@@ -128,7 +128,7 @@ crear_tabla_score <- function(Mes_score, Meses_adelante, filtro_oficinas, filtro
   if (as.numeric(substr(Mes_futuro, 1, 4)) %% 4 == 0) { Cierres_futuro[2] <- 29}
   
   #Cargue y limpieza de tabla principal
-  suppressWarnings(Ahorros <- fread(file = paste0(getwd(), "/aho_fin_mes_", Mes,".csv"), integer64 = "character"))
+  suppressWarnings(Ahorros <- fread(file = paste0(getwd(), "Data/Original/Fin_mes/aho_fin_mes_", Mes,".csv"), integer64 = "character"))
   
   #Validacion: que no haya registros duplicados
   if(length(unique(Ahorros$AAHO_NUM_CUENTA)) < nrow(Ahorros)) {stop(paste0("Hay cuentas de ahorros duplicadas en la data del mes ", Mes))}

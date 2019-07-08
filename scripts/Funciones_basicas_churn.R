@@ -167,7 +167,7 @@ Variables_dias_ult_mov <- function(Ahorros, Mes) {
   # Necesidad de ajustar con ultimo deposito sin intereses, porque ultimo movimiento no incluye depositos
   #######
   
-  suppressWarnings(ultimo_deposito <- fread(file = paste0(getwd(), "/ULTIMO_DEPOSITO_", substr(Mes, 1, 4), substr(Mes, 6, 7), ".csv")))
+  suppressWarnings(ultimo_deposito <- fread(file = paste0(getwd(), "/Data/Original/Ultimo_deposito/ULTIMO_DEPOSITO_", substr(Mes, 1, 4), substr(Mes, 6, 7), ".csv")))
   ultimo_deposito$AAHO_NUM_CUENTA <- as.numeric(ultimo_deposito$AAHO_NUM_CUENTA)
   #ultimo_deposito <- Arreglo_fecha_multiple(Data = ultimo_deposito, Variables = c("MAX_of_AAHO_FEC_ULT_DEP"))
   ultimo_deposito[, MAX_of_AAHO_FEC_ULT_DEP := as.Date(ultimo_deposito$AAHO_FEC_ULT_DEP, format = "%d/%m/%Y")]
@@ -947,11 +947,11 @@ Variables_CRM <- function(Ahorros, Mes) {
 Variables_ahorros_rezagados <- function(Ahorros, Mes) {
   
   #Cargue
-  suppressWarnings(Ahorros_menos1 <- fread(file = paste0(getwd(), "/aho_fin_mes_", Mes_atras_n(Mes, 1),".csv"), integer64 = "character", showProgress = F))
-  suppressWarnings(Ahorros_menos2 <- fread(file = paste0(getwd(), "/aho_fin_mes_", Mes_atras_n(Mes, 2),".csv"), integer64 = "character", showProgress = F))
-  suppressWarnings(Ahorros_menos3 <- fread(file = paste0(getwd(), "/aho_fin_mes_", Mes_atras_n(Mes, 3),".csv"), integer64 = "character", showProgress = F))
-  suppressWarnings(Ahorros_menos4 <- fread(file = paste0(getwd(), "/aho_fin_mes_", Mes_atras_n(Mes, 4),".csv"), integer64 = "character", showProgress = F))
-  suppressWarnings(Ahorros_menos5 <- fread(file = paste0(getwd(), "/aho_fin_mes_", Mes_atras_n(Mes, 5),".csv"), integer64 = "character", showProgress = F))
+  suppressWarnings(Ahorros_menos1 <- fread(file = paste0(getwd(), "/Data/Original/Fin_mes/aho_fin_mes_", Mes_atras_n(Mes, 1),".csv"), integer64 = "character", showProgress = F))
+  suppressWarnings(Ahorros_menos2 <- fread(file = paste0(getwd(), "/Data/Original/Fin_mes/aho_fin_mes_", Mes_atras_n(Mes, 2),".csv"), integer64 = "character", showProgress = F))
+  suppressWarnings(Ahorros_menos3 <- fread(file = paste0(getwd(), "/Data/Original/Fin_mes/aho_fin_mes_", Mes_atras_n(Mes, 3),".csv"), integer64 = "character", showProgress = F))
+  suppressWarnings(Ahorros_menos4 <- fread(file = paste0(getwd(), "/Data/Original/Fin_mes/aho_fin_mes_", Mes_atras_n(Mes, 4),".csv"), integer64 = "character", showProgress = F))
+  suppressWarnings(Ahorros_menos5 <- fread(file = paste0(getwd(), "/Data/Original/Fin_mes/aho_fin_mes_", Mes_atras_n(Mes, 5),".csv"), integer64 = "character", showProgress = F))
   
   #Solo variables que nos interesan
   variables <- c("AAHO_FEC_APERTURA", "AAHO_ESTADO", "AAHO_NUM_CUENTA", "AAHO_PRO_MES", "AAHO_SAL_DISPONIB", "AAHO_SAL_HOY", "AAHO_SAL_MINIMO", "AAHO_FEC_ULT_MOV")

@@ -61,7 +61,7 @@ Tratamiento_tabla_ahorros <- function(Ahorros, Mes, filtro_oficinas, filtro_cafe
 Variables_respuesta <- function(Ahorros, Mes_futuro, Cierres_futuro, estados_mes_inicial, estados_mes_final, variable_respuesta, variable_respuesta_num) {
   
   #Traer la informacion de n meses adelante para pegarle el estado futuro
-  suppressWarnings(Ahorros_futuro <- fread(file = paste0("Z:/modelos_fuertes/Ahorros/aho_fin_mes_", Mes_futuro,".csv"), integer64 = "character", showProgress = F))
+  suppressWarnings(Ahorros_futuro <- fread(file = paste0("Z:/modelos_fuertes/Ahorros/Data/Original/Fin_mes/aho_fin_mes_", Mes_futuro,".csv"), integer64 = "character", showProgress = F))
   
   #Fecha de cierre de mes
   Cierre_mes_futuro <- as.Date(paste0(substr(Mes_futuro, 1, 4), "/", substr(Mes_futuro, 6, 7), "/", Cierres_futuro[as.numeric(substr(Mes_futuro, 6, 7))]))
@@ -73,7 +73,7 @@ Variables_respuesta <- function(Ahorros, Mes_futuro, Cierres_futuro, estados_mes
   # Necesidad de ajustar con ultimo deposito sin intereses, porque ultimo movimiento no incluye depositos
   #######
   
-  suppressWarnings(ultimo_deposito_futuro <- fread(file = paste0(getwd(), "/ultimo_deposito_", substr(Mes_futuro, 1, 4), substr(Mes_futuro, 6, 7), ".csv")))
+  suppressWarnings(ultimo_deposito_futuro <- fread(file = paste0(getwd(), "Data/Original/Ultimo_deposito/ultimo_deposito_", substr(Mes_futuro, 1, 4), substr(Mes_futuro, 6, 7), ".csv")))
   ultimo_deposito_futuro$AAHO_NUM_CUENTA <- as.numeric(ultimo_deposito_futuro$AAHO_NUM_CUENTA)
   #ultimo_deposito_futuro <- Arreglo_fecha_multiple(Data = ultimo_deposito_futuro, Variables = c("MAX_of_AAHO_FEC_ULT_DEP"))
   ultimo_deposito_futuro[, MAX_of_AAHO_FEC_ULT_DEP := as.Date(ultimo_deposito_futuro$AAHO_FEC_ULT_DEP, format = "%d/%m/%Y")]
